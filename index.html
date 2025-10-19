@@ -63,3 +63,88 @@
 
 </body>
 </html>  
+<title>Actividad Numero ocho </title>
+<title>Potocolo HTTP </title>
+</head>
+<body>
+   <h1> Definición general</h1>
+   <section>
+     <h2>definicion</h2>
+     <p>El <strong>Portocolo HTTP</strong>es el protocolo que permite la comunicación entre un cliente (navegador) y un servidor web.<p>
+         <p>Su función principal es transferir información como páginas, imágenes o videos a través de Internet<p>
+            <p>Trabaja bajo el modelo cliente-servidor: el cliente hace una petición y el servidor envía una respuesta.<p>
+     </section>
+
+     <section>
+        <h2>Estructura y funcionamiento</h2>
+        <article>
+
+            <h3>Estructura y funcionamiento</h3>
+            <p><strong>Definicion:</strong>Una comunicación HTTP se compone de dos partes.<p>
+          <p>Petición (Request) → enviada por el cliente. Contiene:</p>
+
+                <ul>
+                    <p>Parte1</p>
+            <li>Metodo (Get,post,etc)</li> 
+            <li>Url del recurso</li>
+                <li>Encabezados ( informacion adicional)</li>
+                <li>Cuerpo(opcional,cuando se envia datos)</li> 
+                     </ul>
+                     <p>Parte2</p>
+                <li>Codigo de estado (ej.200 ok,404 Not Fonund)</li> 
+            <li>Encabezasos del servidor</li>
+                <li>Cuerpo con el contenido solicitado</li>
+
+                <h3>Estructura de una petición HTTP</h3>
+                <p>Línea de petición: indica el método (GET), el recurso (/index.html) y la versión del protocolo (HTTP/1.1)</p>
+                <p>Cabeceras (headers): proporcionan información adicional (navegador, tipo de contenido, idioma, etc.).</p>
+                <p>Cuerpo (body): opcional; se usa para enviar datos (por ejemplo, en formularios o JSON)</p>
+
+                <p>ejemplo</p>
+                <p>Línea de estado: contiene la versión de HTTP, el código de estado y su descripción (por ejemplo, 200 OK)</p>
+                <p>Cabeceras: información del servidor, tipo de contenido, tamaño, etc.</p>
+                <p>Cuerpo: los datos solicitados.</p>
+
+                <title>Métodos de petición HTTP</title>
+                <p>Los métodos indican qué acción se quiere realizar sobre el recurso</p>
+                <p>Método: descripción</p>
+<p>GET: Solicita datos del servidor (no modifica nada).</p>
+<p>post: Envía datos al servidor (por ejemplo, un formulario)</p>
+<p>put: Actualiza un recurso existente en el servidor.</p>
+<p>Delete: Elimina un recurso del servidor.</p>
+<p>Head:Igual que GET, pero solo solicita las cabeceras.</p>
+<p>patch:Modifica parcialmente un recurso</p>
+<p>option:Solicita información sobre los métodos permitidos para un recurso.</p>
+
+<title>Códigos de respuesta HTTP</title>
+<p>1xx – Informativos</p>
+<P>100 Continue: El servidor recibió parte de la solicitud y el cliente debe continuar.</P>
+<p>2xx – Éxito
+200 OK: Solicitud correcta.
+201 Created: Recurso creado exitosamente.
+204 No Content: Solicitud correcta, pero sin contenido en la respuesta.</p>
+
+<p>3xx – Redirección
+301 Moved Permanently: El recurso se ha movido de forma permanente.
+302 Found: Redirección temporal.
+304 Not Modified: El recurso no ha cambiado desde la última solicitud.</p>
+
+<p>4xx – Errores del cliente
+400 Bad Request: Solicitud mal formada.
+401 Unauthorized: Requiere autenticación.
+403 Forbidden: Acceso denegado.
+404 Not Found: El recurso no existe.
+405 Method Not Allowed: Método HTTP no permitido.</p>
+
+<p>5xx – Errores del servidor
+500 Internal Server Error: Error general del servidor.
+502 Bad Gateway: El servidor actuó como puerta de enlace y recibió una respuesta inválida.
+503 Service Unavailable: El servidor no puede atender la solicitud (por mantenimiento o sobrecarga).
+504 Gateway Timeout: El servidor no respondió a tiempo.</p>
+
+<title>En resumen</title>
+<p>HTTP es el protocolo base de la comunicación web.
+Funciona con un modelo cliente-servidor.
+Usa métodos de petición para indicar acciones.
+Devuelve códigos de respuesta que informan el resultado.
+Evoluciona constantemente para mejorar velocidad y seguridad.</p>
