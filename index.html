@@ -148,3 +148,64 @@ Funciona con un modelo cliente-servidor.
 Usa métodos de petición para indicar acciones.
 Devuelve códigos de respuesta que informan el resultado.
 Evoluciona constantemente para mejorar velocidad y seguridad.</p>
+
+  <title>Puertos de red</title>
+</head>
+<body>
+    <h2>definicion</h2>
+     <p>Los<strong>puertos TCP (Protocolo de Control de Transmisión) y UDP (Protocolo de Datagramas de Usuario)</strong>
+        <p>son puntos finales en una red que permiten a los dispositivos comunicarse entre sí. La principal diferencia radica en su enfoque: TCP es un protocolo orientado a la conexión.</p>
+        <p>fiable y que garantiza la entrega de datos en orden, ideal para aplicaciones como el correo electrónico y la navegación web.</p>
+        <p>UDP es un protocolo sin conexión, más rápido y eficiente, pero no garantiza la entrega ni el orden de los paquetes, lo que lo hace ideal para aplicaciones de streaming y juegos en línea</p>
+
+        <title>TCP (Protocolo de Control de Transmisión)</title>
+
+        <p>Orientado a la conexión: Establece una conexión entre el emisor y el receptor antes de enviar datos.</p>
+        <p>Fiable: Asegura que todos los paquetes de datos lleguen correctamente y en el orden correcto, incluso retransmitiendo los paquetes perdidos.</p>
+        <p>Lento: El establecimiento de la conexión y las confirmaciones de entrega hacen que el proceso sea más lento que con UDP.</p>
+        <p>Uso común: Correo electrónico, navegación web (HTTP/HTTPS), transferencia de archivos.</p>
+
+        <title>UDP (Protocolo de Datagramas de Usuario)</title>
+
+        <p>Sin conexión: Envía paquetes de datos sin establecer una conexión previa.</p>
+        <p>No fiable: No garantiza la entrega ni el orden de los paquetes; los paquetes perdidos no se retransmiten.</p>
+        <p>Rápido: Al no tener la sobrecarga de la conexión y la confirmación, es mucho más rápido que TCP.</p>
+        <p>Uso común: Streaming de video y audio, voz sobre IP (VoIP) y juegos en línea, donde la velocidad es más importante que la pérdida ocasional de datos.</p>
+
+        <title>Puntos claves</title>
+
+        <p>Ambos protocolos funcionan en la Capa de Transporte y utilizan números de puerto para dirigir los datos a la aplicación correcta en un dispositivo</p>
+
+        <p>Un puerto puede ser utilizado por TCP o UDP, pero un servicio específico generalmente prefiere uno sobre el otro</p>
+        <p>Por ejemplo, DNS utiliza ambos: UDP para la mayoría de las consultas y TCP para transferencias de zona más grandes.</p>
+
+        <p>Los números de puerto son asignados a servicios específicos. El puerto 80 es para HTTP, el 443 para HTTPS y el 53 para DNS, entre otros.</p>
+
+        <title>Tipos de puertos</title>
+
+        <p>Protocolo HTTP Num de puerto 80 funcionamiento: Transferencia de páginas web no cifradas.</p>
+
+        <p>Protocolo HTTPS Num de puerto 443 funcionamiento:Transferencia de páginas web seguras (HTTP sobre SSL/TLS).</p>
+
+        <p>Protocolo SMTP Num de puertos 25, 465, 587 funcionamiento: Envío de correo electrónico (25 estándar, 465 con SSL, 587 con STARTTLS).</p>
+
+        <p>Protocolo POP3 NUM de puerto 110, 995 funcionamiento: Recepción de correo electrónico (995 usa SSL/TLS).</p>
+
+        <p>Protocolo IMAP NUm de puerto 143, 993 funcionamiento: Acceso a correo en servidor (993 usa SSL/TLS).</p>
+        <p>Protocolo MIME No tiene puerto propio Funcionamiento: Es una extensión de formato del correo electrónico, no un protocolo de transporte. Funciona sobre SMTP/POP3/IMAP.</p>
+
+        <p>Protocolo FTP Num de puertos 21 (control), 20 (datos) Funcionamiento: Transferencia de archivos; modo activo y pasivo.</p>
+
+        <p>Protocolo FTPS Num de puertos 990 (implícito), 21 (explícito) Funcionamiento: FTP con seguridad SSL/TLS</p>
+
+        <p>Protocolo SFTP Num de puerto 22 Funcionamiento: Transferencia de archivos segura sobre SSH.</p>
+
+        <p>Protocolo BitTorrent Num de puerto 6881–6889 (recomendado) Funcionamiento: ntercambio P2P de archivos; los clientes pueden usar otros puertos configurables.</p>
+
+        <p>Protocolo FastTrack Num de puerto 1214 Funcionamiento: Red P2P usada por Kazaa y Grokster.</p>
+
+        <p>Protocolo IRC NUm de Puertos 6660–6669, 194, 7000 Funcionamiento: Chat en tiempo real (Internet Relay Chat).</p>
+
+        <p>Protocolo XMPP NUm de puertos 5222 (no cifrado o STARTTLS), 5223 (SSL), 5269 (entre servidores) Funcionamiento: Mensajería instantánea y comunicación federada (Jabber).</p>
+
+        <P>Protocolo MTProto Num de puertos 443, 80, 88, 5222 (varía según implementación) Funcionamiento: Protocolo propio de Telegram para mensajería segura; usa puertos comunes para evitar bloqueos.</P>
