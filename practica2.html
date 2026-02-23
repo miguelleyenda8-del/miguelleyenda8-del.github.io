@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora inteligente</title>
+</head>
+<body>
+    <style>
+          body{
+    font-family: Arial;
+    text-align:center;
+    background:#f2f2f2;
+}
+
+input, select, button{
+    margin:5px;
+    padding:8px;
+}
+
+#resultado{
+    font-size:20px;
+    color:blue;
+    margin-top:10px;
+}
+.error{
+    color:red;
+}
+    </style>
+</body>
+  
+    <script>
+    function mostrarFormulario(){
+    let tipo = document.getElementById("tipoCalculo").value;
+    let form = document.getElementById("formulario");
+    form.innerHTML = "";
+    document.getElementById("resultado").innerHTML = "";
+
+    if(tipo === "triangulo"){
+        form.innerHTML = `
+        <input id="base" placeholder="Base">
+        <input id="altura" placeholder="Altura">
+        <button onclick="areaTriangulo()">Calcular</button>`;
+    }
+
+    if(tipo === "esfera"){
+        form.innerHTML = `
+        <input id="radio" placeholder="Radio">
+        <button onclick="volumenEsfera()">Calcular</button>`;
+    }
+
+    if(tipo === "divisa"){
+        form.innerHTML = `
+        <input id="cantidad" placeholder="Cantidad MXN">
+        <select id="moneda">
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+        </select>
+        <button onclick="convertir()">Convertir</button>`;
+    }
+}
+
+function validar(num){
+    if(num === "" || isNaN(num) || num <= 0){
+        return false;
+    }
+    return true;
+}
+
+function areaTriangulo(){
+    let b = document.getElementById("base").value;
+    let h = document.getElementById("altura").value;
+
+    if(!validar(b) || !validar(h)){
+        mostrarError("Valores inválidos en base o altura");
+        return;
+    }
+
+    let area = (b*h)/2;
+    mostrarResultado("Área = " + area.toFixed(2));
+    guardar(area);
+}
+
+function volumenEsfera(){
+    let r = document.getElementById("radio").value;
+
+    if(!validar(r)){
+        mostrarError("Radio inválido");
+        return;
+    }
+
+    let vol = (4/3)*Math.PI*Math.pow(r,3);
+    mostrarResultado("Volumen = " + vol.toFixed(2));
+    guardar(vol);
+}
+
+function convertir(){
+    let cant = document.getElementById("cantidad").value;
+    let moneda = document.getElementById("moneda").value;
+
+    if(!validar(cant)){
+        mostrarError("Cantidad inválida");
+        return;
+    }
+
+    let resultado;
+    if(moneda === "usd") resultado = cant * 0.058;
+    if(moneda === "eur") resultado = cant * 0.053;
+
+    mostrarResultado("Resultado = " + resultado.toFixed(2) + " " + moneda.toUpperCase());
+    guardar(resultado);
+}
+
+function mostrarResultado(msg){
+    document.getElementById("resultado").innerHTML = msg;
+}
+
+function mostrarError(msg){
+    document.getElementById("resultado").innerHTML = `<span class="error">${msg}</span>`;
+}
+
+function limpiar(){
+    document.getElementById("formulario").innerHTML = "";
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("tipoCalculo").value = "";
+}
+
+function guardar(valor){
+    localStorage.setItem("ultimoResultado", valor);
+}
+    </script>
+
+    <select id="tipoCalculo" onchange="mostrarFormulario()">
+        <option value="">Selecciona un cálculo</option>
+        <option value="triangulo">Área de un triángulo</option>
+        <option value="esfera">Volumen de una esfera</option>
+        <option value="divisa">Conversión de divisas</option>
+    </select>
+
+    <div id="formulario"></div>
+    <div id="resultado"></div>
+    <button onclick="limpiar()">Limpiar</button>
+
+
+</body>
+</html>
