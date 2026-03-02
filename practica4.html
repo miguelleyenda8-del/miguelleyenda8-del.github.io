@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title> Practica4.- Ejercicios de Funciones JS</title>
+<style>
+    body { font-family: Arial; text-align: center; margin: 20px; }
+    button { margin: 5px; padding: 10px; }
+    input { padding: 5px; margin: 5px; }
+    #resultado { margin-top: 20px; font-size: 18px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>Ejercicios de Funciones en JavaScript</h2>
+
+<input type="number" id="numero" placeholder="Ingresa un número">
+<input type="text" id="array" placeholder="Array ej: 1,2,3">
+
+<br><br>
+
+<button onclick="probarPar()">1️⃣ Es Par o Impar</button>
+<button onclick="probarFactorial()">2️⃣ Factorial</button>
+<button onclick="probarSuma()">3️⃣ Suma Array</button>
+<button onclick="probarCuadrados()">4️⃣ Cuadrado</button>
+<button onclick="probarCombinacion()">5️⃣ Combinación</button>
+
+<div id="resultado"></div>
+
+<script>
+// 1️⃣ Función Tradicional
+function esPar(numero){
+    return numero % 2 === 0 ? "Es par" : "Es impar";
+}
+
+// 2️⃣ Función Anónima
+let factorial = function(n){
+    let r = 1;
+    for(let i=1;i<=n;i++) r *= i;
+    return r;
+};
+
+// 3️⃣ Arrow Function
+let sumaArray = arr => arr.reduce((a,b)=>a+b,0);
+
+// 4️⃣ Tres tipos de funciones
+function cuadrado1(n){ return n*n; }
+let cuadrado2 = function(n){ return n*n; }
+let cuadrado3 = n => n*n;
+
+// 5️⃣ Combinación
+let arrowDoble = n => n*2;
+
+function tradicional(n){
+    let anonima = function(x){
+        return arrowDoble(x);
+    };
+    return anonima(n);
+}
+
+// BOTONES
+function probarPar(){
+    let n = Number(document.getElementById("numero").value);
+    document.getElementById("resultado").innerHTML = esPar(n);
+}
+
+function probarFactorial(){
+    let n = Number(document.getElementById("numero").value);
+    document.getElementById("resultado").innerHTML = "Factorial = " + factorial(n);
+}
+
+function probarSuma(){
+    let texto = document.getElementById("array").value;
+    let arr = texto.split(",").map(Number);
+    document.getElementById("resultado").innerHTML = "Suma = " + sumaArray(arr);
+}
+
+function probarCuadrados(){
+    let n = Number(document.getElementById("numero").value);
+    document.getElementById("resultado").innerHTML =
+        "Tradicional: " + cuadrado1(n) +
+        "<br>Anónima: " + cuadrado2(n) +
+        "<br>Arrow: " + cuadrado3(n);
+}
+
+function probarCombinacion(){
+    let n = Number(document.getElementById("numero").value);
+    document.getElementById("resultado").innerHTML =
+        "Resultado combinación = " + tradicional(n);
+}
+</script>
+
+</body>
+</html>
