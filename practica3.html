@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicios JavaScript</title>
+</head>
+<body>
+
+    <h2>Ejercicio 1: Sumatoria</h2>
+    <label>Ingresa un número:</label>
+    <input type="text" id="numero1">
+    <button onclick="calcularSuma()">Calcular Sumatoria</button>
+    <div id="resultado1"></div>
+
+    <hr>
+
+    <h2>Ejercicio 2: Factorial</h2>
+    <label>Ingresa un número:</label>
+    <input type="text" id="numero2">
+    <button onclick="calcularFactorial()">Calcular Factorial</button>
+    <div id="resultado2"></div>
+
+    <hr>
+
+    <h2>🔥 Reto: Serie Numérica</h2>
+    <label>Ingresa un número entero positivo:</label>
+    <input type="text" id="numero3">
+    <button onclick="serieNumerica()">Mostrar Serie</button>
+    <div id="resultado3"></div>
+
+<script>
+
+// EJERCICIO 1: SUMATORIA
+function calcularSuma() {
+
+    // Obtenemos el número del input
+    let n = parseInt(document.getElementById("numero1").value);
+
+    let suma = 0;
+
+    // Ciclo for desde 1 hasta n
+    for(let i = 1; i <= n; i++){
+        suma = suma + i; // acumulamos
+    }
+
+    // Mostramos resultado en el div
+    document.getElementById("resultado1").innerHTML =
+        "La sumatoria desde 1 hasta " + n + " es: " + suma;
+}
+
+// EJERCICIO 2: FACTORIAL
+function calcularFactorial(){
+
+    let n = parseInt(document.getElementById("numero2").value);
+
+    let factorial = 1;
+
+    // Caso especial: factorial de 0 es 1
+    if(n == 0){
+        factorial = 1;
+    }else{
+        // Multiplicamos desde 1 hasta n
+        for(let i = 1; i <= n; i++){
+            factorial = factorial * i;
+        }
+    }
+
+    document.getElementById("resultado2").innerHTML =
+        "El factorial de " + n + " es: " + factorial;
+}
+
+// RETO ADICIONAL
+function serieNumerica(){
+
+    let valor = document.getElementById("numero3").value;
+
+    let resultadoDiv = document.getElementById("resultado3");
+
+    // Validamos si es número
+    if(isNaN(valor)){
+        resultadoDiv.innerHTML = "Error: Debes ingresar un número.";
+        return;
+    }
+
+    let n = parseInt(valor);
+
+    // Validamos si es entero
+    if(!Number.isInteger(n)){
+        resultadoDiv.innerHTML = "Error: Debe ser un número entero.";
+        return;
+    }
+
+    // Validamos si es mayor que 0
+    if(n <= 0){
+        resultadoDiv.innerHTML = "Error: Debe ser mayor que 0.";
+        return;
+    }
+
+    let suma = 0;
+    let lista = "";
+
+    // Usamos ciclo for
+    for(let i = 1; i <= n; i++){
+        lista = lista + i + " ";
+        suma = suma + i;
+    }
+
+    // Verificamos si es par o impar
+    let tipo;
+    if(n % 2 == 0){
+        tipo = "Par";
+    }else{
+        tipo = "Impar";
+    }
+
+    // Mostramos resultados ordenados
+    resultadoDiv.innerHTML =
+        "Números del 1 al " + n + ": <br>" +
+        lista + "<br><br>" +
+        "Suma total: " + suma + "<br>" +
+        "El número " + n + " es: " + tipo;
+}
+</script>
+</body>
+</html>
